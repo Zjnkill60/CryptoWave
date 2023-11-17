@@ -26,6 +26,7 @@ export default function RootLayout({
       <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" async></script>
       <body className={inter.className}>
         <ThemeProvider>
+          {/* <Navbar/> */}
           {children}
         </ThemeProvider>
         </body>

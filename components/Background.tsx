@@ -3,6 +3,7 @@
 // import Cloud from '../vanta/src/vanta.clouds.js'
 
 import Cloud from 'vanta/dist/vanta.clouds.min.js'
+import * as THREE from 'three'
 import { useEffect, useRef, useState } from "react"
 import Image from 'next/image'
 import Theme from './Theme'
@@ -42,7 +43,20 @@ export const Background = () => {
   
     return (
       <div className=' min-h-screen  w-screen relative  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' ref={vantaRef}>
-        <div className='z-10 absolute top-8 right-10'>
+        <div className='z-10 absolute top-8 right-10 flex gap-10'>
+          <div className='flex gap-5 md:gap-3'>
+             {['/assets/twitter.png','/assets/discord.png','/assets/telegram.png','/assets/instagram.png'].map((item,index) => {
+              return (
+              <Image 
+                src={item}
+                key={index}
+                alt='social'
+                width={20}
+                height={20}
+                className='invert dark:invert-0 cursor-pointer hover:opacity-80 '
+              />)
+             })}
+          </div>
           <Theme/>
         </div>
         <div className=' z-10  flex flex-col justify-center items-center p-4'>
@@ -57,7 +71,7 @@ export const Background = () => {
                 />
             </div>
             <h4 className='mt-7 md:mt-10 text- md:text-sm sm:text-xs text-center'>Thân thiện, hỗ trợ nhiệt tình nhất với khách hàng. Làm việc đặt cái tâm lên hàng đầu </h4>
-            <button className='mt-10 md:mt-5  px-8 nft-gradient  text-sm font-semibold py-3 text-nft-gray-3  rounded-md'>Get started !</button>
+            <button className='mt-10 md:mt-5  hover:opacity-90  px-8 nft-gradient  text-sm font-semibold py-3 text-nft-gray-3  rounded-md'>Get started !</button>
         </div>
       </div>
     )
