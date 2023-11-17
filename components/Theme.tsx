@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client"
 
 import React from 'react'
@@ -23,8 +24,8 @@ const Theme = () => {
     }
   return (
     <div>
-         <input type='checkbox' className='checkbox' id='checkbox' onChange={() => handleChangeTheme()}/>
-         <label htmlFor='checkbox' className='flex justify-between items-center rounded-2xl px-1 relative bg-black w-10 h-5 label'>
+         <input  type='checkbox' className='checkbox' id='checkbox' onChange={() => handleChangeTheme()}/>
+         <label htmlFor='checkbox' className={`${mode !== "dark" ? "bg-black":'bg-gradient'} flex justify-between items-center rounded-2xl px-1 relative   w-10 h-5 label`}>
           <FontAwesomeIcon icon={faSun} style={{fontSize : 13}} />
           <FontAwesomeIcon icon={faMoon} style={{fontSize : 13}}/>
           <div className='h-4 w-4 bg-white rounded-full ball absolute'/>

@@ -1,6 +1,7 @@
+/* eslint-disable */
 "use client"
-//@ts-ignore
-import Cloud from 'vanta/src/vanta.clouds'
+
+import Cloud from '../node_modules/vanta/src/vanta.clouds.js'
 
 import { useEffect, useState } from "react"
 import Image from 'next/image'
@@ -20,7 +21,7 @@ export const Background = () => {
         sunColor:0xd4b48c,
         sunGlareColor:0xff6633,
         sunlightColor:0xff9933,
-        speed:2
+        speed:1.5
       }) : 
       Cloud({
         el: "#vanta",
@@ -30,7 +31,7 @@ export const Background = () => {
         sunColor:0x785428,
         sunGlareColor:0xcdaf91,
         sunlightColor:0xcdaf91,
-        speed:2
+        speed:1.5
       }) 
     },[mode])
   
