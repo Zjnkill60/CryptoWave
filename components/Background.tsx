@@ -3,7 +3,7 @@
 // import Cloud from '../vanta/src/vanta.clouds.js'
 
 import Cloud from 'vanta/dist/vanta.clouds.min.js'
-
+import * as THREE from 'three'
 import { useEffect, useRef, useState } from "react"
 import Image from 'next/image'
 import Theme from './Theme'
@@ -16,6 +16,7 @@ export const Background = () => {
     useEffect(() => {
        const effect =  mode === "light" ? 
         Cloud({
+        THREE,
         el:vantaRef.current,
         skyColor:0x68b8d7,
         cloudColor:0xadc1de,
@@ -26,6 +27,7 @@ export const Background = () => {
         speed:2
       }) : 
       Cloud({
+        THREE,
         el:vantaRef.current,
         skyColor:0x334952,
         cloudColor:0x141e2d,
@@ -55,8 +57,8 @@ export const Background = () => {
                 className='rounded-full  '
                 />
             </div>
-            <h4 className='mt-7 text- md:text-sm sm:text-xs text-center'>Thân thiện, hỗ trợ nhiệt tình nhất với khách hàng. Làm việc đặt cái tâm lên hàng đầu </h4>
-            <button className='mt-10  px-8 nft-gradient  text-sm font-semibold py-3 text-nft-gray-3  rounded-md'>Get started !</button>
+            <h4 className='mt-7 md:mt-10 text- md:text-sm sm:text-xs text-center'>Thân thiện, hỗ trợ nhiệt tình nhất với khách hàng. Làm việc đặt cái tâm lên hàng đầu </h4>
+            <button className='mt-10 md:mt-5  px-8 nft-gradient  text-sm font-semibold py-3 text-nft-gray-3  rounded-md'>Get started !</button>
         </div>
       </div>
     )
