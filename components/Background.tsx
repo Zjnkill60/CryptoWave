@@ -3,7 +3,6 @@
 // import Cloud from '../vanta/src/vanta.clouds.js'
 
 import Cloud from 'vanta/dist/vanta.clouds.min.js'
-import * as THREE from 'three'
 import { useEffect, useRef, useState } from "react"
 import Image from 'next/image'
 import Theme from './Theme'
@@ -16,7 +15,7 @@ export const Background = () => {
     useEffect(() => {
        const effect =  mode === "light" ? 
         Cloud({
-        THREE,
+        
         el:vantaRef.current,
         skyColor:0x68b8d7,
         cloudColor:0xadc1de,
@@ -27,7 +26,7 @@ export const Background = () => {
         speed:2
       }) : 
       Cloud({
-        THREE,
+        
         el:vantaRef.current,
         skyColor:0x334952,
         cloudColor:0x141e2d,
