@@ -1,7 +1,7 @@
 /* eslint-disable */
 "use client"
 
-import Cloud from '../node_modules/vanta/src/vanta.clouds.js'
+import Cloud from 'vanta/src/vanta.clouds.js'
 
 import { useEffect, useState } from "react"
 import Image from 'next/image'
