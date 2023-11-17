@@ -4,18 +4,19 @@
 
 import Cloud from 'vanta/dist/vanta.clouds.min.js'
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from 'next/image'
 import Theme from './Theme'
 import { useTheme } from '@/context/ThemeProvider'
 
 export const Background = () => {
+    const vantaRef = useRef(null)
 
     const {mode} = useTheme()
     useEffect(() => {
-        mode == "light" ? 
+       const effect =  mode === "light" ? 
         Cloud({
-        el: "#vanta",
+        el:vantaRef.current,
         skyColor:0x68b8d7,
         cloudColor:0xadc1de,
         cloudShadowColor:0x183550,
@@ -25,7 +26,7 @@ export const Background = () => {
         speed:2
       }) : 
       Cloud({
-        el: "#vanta",
+        el:vantaRef.current,
         skyColor:0x334952,
         cloudColor:0x141e2d,
         cloudShadowColor:0x183550,
@@ -34,10 +35,12 @@ export const Background = () => {
         sunlightColor:0xcdaf91,
         speed:2
       }) 
+
+      return () => effect.destroy()
     },[mode])
   
     return (
-      <div className=' min-h-screen  w-screen relative  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' id='vanta'>
+      <div className=' min-h-screen  w-screen relative  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' ref={vantaRef}>
         <div className='z-10 absolute top-8 right-10'>
           <Theme/>
         </div>
