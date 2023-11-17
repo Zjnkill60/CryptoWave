@@ -1,1 +1,2 @@
-declare module 'vanta/src/vanta.clouds.js';
+declare module  'vanta/dist/vanta.clouds.min.js'
+;
