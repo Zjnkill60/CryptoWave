@@ -1,10 +1,6 @@
 "use client"
-
-// import Cloud from '../vanta/src/vanta.clouds.js'
-
-import Cloud from 'vanta/dist/vanta.clouds.min.js'
-import * as THREE from 'three'
-import { useEffect, useRef, useState } from "react"
+// import Cloud from 'vanta/dist/vanta.clouds.min.js'
+import { useEffect, useRef } from "react"
 import Image from 'next/image'
 import Theme from './Theme'
 import { useTheme } from '@/context/ThemeProvider'
@@ -13,33 +9,33 @@ export const Background = () => {
     const vantaRef = useRef(null)
 
     const {mode} = useTheme()
-    useEffect(() => {
-       const effect =  mode === "light" ? 
-        Cloud({
+    // useEffect(() => {
+    //    const effect =  mode === "light" ? 
+    //     Cloud({
         
-        el:vantaRef.current,
-        skyColor:0x68b8d7,
-        cloudColor:0xadc1de,
-        cloudShadowColor:0x183550,
-        sunColor:0xd4b48c,
-        sunGlareColor:0xff6633,
-        sunlightColor:0xff9933,
-        speed:2
-      }) : 
-      Cloud({
+    //     el:vantaRef.current,
+    //     skyColor:0x68b8d7,
+    //     cloudColor:0xadc1de,
+    //     cloudShadowColor:0x183550,
+    //     sunColor:0xd4b48c,
+    //     sunGlareColor:0xff6633,
+    //     sunlightColor:0xff9933,
+    //     speed:2
+    //   }) : 
+    //   Cloud({
         
-        el:vantaRef.current,
-        skyColor:0x334952,
-        cloudColor:0x141e2d,
-        cloudShadowColor:0x183550,
-        sunColor:0x785428,
-        sunGlareColor:0xcdaf91,
-        sunlightColor:0xcdaf91,
-        speed:2
-      }) 
+    //     el:vantaRef.current,
+    //     skyColor:0x334952,
+    //     cloudColor:0x141e2d,
+    //     cloudShadowColor:0x183550,
+    //     sunColor:0x785428,
+    //     sunGlareColor:0xcdaf91,
+    //     sunlightColor:0xcdaf91,
+    //     speed:2
+    //   }) 
 
-      return () => effect.destroy()
-    },[mode])
+    //   return () => effect.destroy()
+    // },[mode])
   
     return (
       <div className=' min-h-screen  w-screen relative  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' ref={vantaRef}>
