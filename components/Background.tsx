@@ -35,7 +35,7 @@ export const Background = () => {
         }) 
         }
       
-      return () => effect.destroy()
+  
     },[mode])
   
     return (
