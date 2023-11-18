@@ -4,6 +4,7 @@ import './globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { ThemeProvider } from '@/context/ThemeProvider'
+import { ClerkProvider } from '@clerk/nextjs'
 
 config.autoAddCss = false
 
@@ -22,15 +23,18 @@ export default function RootLayout({
 }) {
   return (
     
-    <html lang="en">
+   <ClerkProvider>
+     <html lang="en">
       <head>
         <script  src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" defer></script>
       </head>
       <body className={inter.className}>
+        
         <ThemeProvider>
           {children}
         </ThemeProvider>
         </body>
     </html>
+   </ClerkProvider>
   )
 }
