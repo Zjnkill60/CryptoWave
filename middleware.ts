@@ -1,7 +1,9 @@
 import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
   // "/" will be accessible to all users
-  publicRoutes: ["/", "/api/webhook"]
+  publicRoutes: ["/", "/api/webhook"],
+  ignoredRoutes: ["/api/webhook", "api/chatgpt"],
+
 });
 ;
  
