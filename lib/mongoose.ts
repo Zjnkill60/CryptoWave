@@ -9,10 +9,15 @@ export const connectToDatabase = async () => {
     return;
   }
   mongoose.set("strictQuery", false);
-  const database = await mongoose.connect(String(process.env.DB_MONGODB_URL), {
-    dbName: "DevFlow",
-  });
+  try {
+    const database = await mongoose.connect(String(process.env.DB_MONGODB_URL), {
+        dbName: "DevFlow",
+      });
+    stateConnection = database.connections[0].readyState;
 
-  stateConnection = database.connections[0].readyState;
+  } catch (error) {
+    console.log(error)
+  }
+
   console.log("new database connection created");
 };
