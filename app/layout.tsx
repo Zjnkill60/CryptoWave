@@ -23,6 +23,9 @@ export default function RootLayout({
   return (
     
     <html lang="en">
+      <head>
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" defer></script>
+      </head>
       <body className={inter.className}>
         <ThemeProvider>
           {children}
