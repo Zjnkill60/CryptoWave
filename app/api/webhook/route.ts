@@ -75,6 +75,9 @@ export async function POST(req: Request) {
     });
     return NextResponse.json({ message: "OK", user: userMongo });
   }
+  
+  return new Response("", { status: 201 });
+
 }
 //   if (eventType === "user.updated") {
 //     const { id, image_url, first_name, last_name } = evt.data;
@@ -89,5 +92,4 @@ export async function POST(req: Request) {
 //     return NextResponse.json({ message: "OK", user: userMongo });
 //   }
 
-//   return new Response("", { status: 201 });
 // 
