@@ -40,6 +40,8 @@ export const Background = () => {
   
     return (
       <>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" async></script>
+
       {<div className=' min-h-screen  w-screen relative  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' ref={vantaRef}>
       <div className='z-10 absolute top-8 right-10 flex gap-10'>
         <div className='flex gap-5 md:gap-3'>
