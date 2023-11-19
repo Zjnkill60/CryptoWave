@@ -53,9 +53,9 @@ body {
 }
 
 /*  target the elemenent after the label*/
-.checkbox:checked + .label .ball{
+/* .checkbox:checked + .label .ball{
   transform: translateX(19px);
-}
+} */
 
 .fa-moon {
   color: pink;
