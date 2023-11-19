@@ -13,7 +13,7 @@ export default function Home() {
 
   // })
   return (
-    <main className='w-screen	'>
+    <main className='w-screen	bg-black min-h-screen'>
      <Background userId ={userId}></Background>
     </main>
   )

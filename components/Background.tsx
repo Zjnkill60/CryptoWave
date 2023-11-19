@@ -43,7 +43,7 @@ export const Background = ({userId} : {userId:string}) => {
     return (
       <>
 
-      {<div className=' min-h-screen  w-screen relative  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' ref={vantaRef}>
+      {<div className='w-screen relative min-h-screen  flex justify-center items-center dark:text-nft-gray-1 text-nft-gray-3 font-normal ' ref={vantaRef}>
       <div className='z-10 absolute top-5 right-10 flex gap-10 items-center'>
         
         <div className='flex gap-5 md:gap-3'>

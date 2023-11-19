@@ -14,6 +14,7 @@ const config: Config = {
         'dark' :'#2b2928',
         'regal-blue': '#243c5a',
         'nft-dark': '#24252D',
+        'nft-gray-0':'#f2f3f4',
         'nft-gray-1': '#E3E1E3',
         'nft-gray-2': '#888888',
         'nft-gray-3': '#4F4F4F',
