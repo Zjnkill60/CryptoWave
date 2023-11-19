@@ -11,9 +11,13 @@ const config: Config = {
     extend: {
       
       colors: {
-        'dark' :'#2b2928',
-        'regal-blue': '#243c5a',
-        'nft-dark': '#24252D',
+        'dark' :'#ADFF2F',
+        'dark-green':'#1ed5a7',
+        'green-darkmode':'#2d6a4f',
+        'green-lightmode':'#c2f0d7',
+        
+        'text-light-green': '#106236',
+        'nft-dark': '#748494',
         'nft-gray-0':'#f2f3f4',
         'nft-gray-1': '#E3E1E3',
         'nft-gray-2': '#888888',
@@ -67,13 +71,16 @@ const config: Config = {
       lg: { max: '1800px' },
       xl : {max: '17000px'},
       md: { max: '990px' },
+      sd: {max:'780px'},
       sm: { max: '600px' },
       xs: { max: '400px' },
       minmd: '1700px',
       minlg: '2100px',
+      minsm:{min:'600px'}
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
+      sans: ['ui-sans-serif', 'system-ui']
     },
     
   },
