@@ -1,12 +1,13 @@
-import { NextRequest  } from "next/server";
 
-export  function POST(req:Request | NextRequest,res:Response  ) {
+export  function POST(req:Request ) {
     //@ts-ignore
-    let error = req.body.error;
+    let error = req.body?.error;
     console.log(error)
     if (error != 0) {
         //Không làm gì cả.
-        return;
+        return new Response("Error occured", {
+            status: 400,
+          });
     }
     
     //mảng chứa danh sách các giao dịch
@@ -17,5 +18,7 @@ export  function POST(req:Request | NextRequest,res:Response  ) {
     
     //thêm code xử lý giao dịch ở đây.
     
-    return Response.json({message:"OK"})
+    return new Response("OK", {
+        status: 200,
+      });
 }
