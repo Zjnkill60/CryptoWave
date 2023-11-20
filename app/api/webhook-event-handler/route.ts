@@ -1,8 +1,8 @@
 
-export  function POST(req:Request ) {
-    const content = req.json()
+export async function POST(req:Request ) {
+    const payload = await req.json()
      //@ts-ignore
-    let error = content?.error;
+    let error = payload?.error;
     console.log(error)
     if (error != 0) {
         //Không làm gì cả.
@@ -13,7 +13,7 @@ export  function POST(req:Request ) {
     
     //mảng chứa danh sách các giao dịch
     //@ts-ignore
-    let transactions = content?.data;
+    let transactions = payload?.data;
     
     console.log(`Received ${transactions.length} transactions`);
     
