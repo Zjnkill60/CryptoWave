@@ -38,6 +38,7 @@ export const Background = ({userId} : {userId:string}) => {
           speed:2
         }) 
         }
+        return () => effect?.destroy()
     },[mode])
   
     return (

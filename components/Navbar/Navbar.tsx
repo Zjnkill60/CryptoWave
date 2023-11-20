@@ -4,7 +4,7 @@ import Theme from '../Theme'
 
 const Navbar = () => {
   return (
-    <div className='flex  fixed z-10  py-4  w-full md:px-4 px-6 text-center bg-nft-gray-0 dark:bg-nft-black-4'>
+    <div className='flex  fixed z-10  py-4  w-full md:px-4 px-6 text-center bg-nft-gray-0 dark:bg-nft-black-4 border-b dark:border-nft-black-1 border-gray-300'>
         <div className='flex justify-end w-full items-center gap-10'>
 
          <Theme/>
