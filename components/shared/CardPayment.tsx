@@ -19,7 +19,7 @@ const CardPayment = (params:ISearchParams) => {
         }
     }
   return (
-    <div className='z-10 fixed bottom-0 w-full min-h-[110px]  bg-gray-300 dark:bg-nft-black-3 border-t dark:border-nft-black-1 border-gray-300 flex items-center gap-40 md:justify-between'>
+    <div className='z-10 fixed bottom-0 w-full min-h-[110px]  bg-gray-200 dark:bg-nft-black-3 border-t dark:border-nft-black-1 border-gray-300 flex items-center gap-40 md:justify-between'>
             <div className='flex flex-col gap-2 py-5 px-8 z-20 md:px-4'>
                 <h4 className='font-medium sm:text-sm dark:text-gray-400 text-black'>Thanh Toán</h4>
                 

@@ -70,7 +70,7 @@ const page = ({searchParams} : {searchParams :ISearchParams}) => {
                 <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-6'/>  
 
                 <div className='mb-32 flex justify-evenly mt-14 xl:flex-col xl:gap-10'>
-                    <div className='p-5 dark:bg-nft-black-1 bg-nft-gray-1 xl:w-full w-[388px]  flex flex-col rounded-lg'>
+                    <div className='p-5 dark:bg-nft-black-1 bg-gray-200 xl:w-full w-[388px]  flex flex-col rounded-lg'>
                         <h2 className='text-xl md:text-lg font-semibold text-text-light-green dark:text-dark-green '>THÔNG TIN NẠP TIỀN</h2>
                         <div className='flex sm:flex-col sm:items-start items-center gap-3 mt-7'>
                             <p className='dark:text-gray-200 text-gray-600'>Ngân hàng:</p>

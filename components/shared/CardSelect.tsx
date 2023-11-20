@@ -39,10 +39,10 @@ const CardSelect = ({option,id}:{id:string,option:{name:string,value:string}[]})
     console.log(searchSelect)
   return (
    <Select onValueChange={(value:any) => handleSelect(value)}  defaultValue={searchSelect ? searchSelect : id == "payment" ? "banking": id == "quantity" ? "1"  : "random" } >
-        <SelectTrigger className="w-full min-h-[56px] dark:bg-nft-black-1 bg-nft-gray-1 hover:opacity-90">
+        <SelectTrigger className="w-full min-h-[56px] dark:bg-nft-black-1 bg-gray-200 hover:opacity-90">
             <SelectValue  />
         </SelectTrigger>
-        <SelectContent className='dark:bg-nft-black-1 bg-nft-gray-1'>
+        <SelectContent className='dark:bg-nft-black-1 bg-gray-200'>
             {option?.map(item => {
                 return (
                 <SelectItem key={item.value} className='hover:dark:bg-nft-black-4' value={item.value}>{item.name}</SelectItem> 

@@ -44,7 +44,7 @@ const CardItem = (params:Item) => {
     },[])
       
   return (
-    <div onClick={() =>  router.push(pathname + '?' + createQueryString('packed', params.id),{scroll:false})} className=' z-0 p-4 dark:bg-nft-black-1 bg-nft-gray-1 hover:opacity-80 cursor-pointer w-full rounded-lg min-h-[200px] flex flex-col justify-between sd:min-h-[150px] relative overflow-hidden'>
+    <div onClick={() =>  router.push(pathname + '?' + createQueryString('packed', params.id),{scroll:false})} className=' z-0 p-4 dark:bg-nft-black-1 bg-gray-200 hover:opacity-80 cursor-pointer w-full rounded-lg min-h-[200px] flex flex-col justify-between sd:min-h-[150px] relative overflow-hidden'>
        {packedParams == params.id ?<div className='absolute -top-1 -right-1 w-10 h-10 dark:bg-dark-green bg-green-lightmode rounded-xl grid place-items-center'>
          <FontAwesomeIcon icon={faCheck} className='dark:invert' />
         </div>:<></> } 
