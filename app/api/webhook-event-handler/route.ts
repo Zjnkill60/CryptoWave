@@ -14,6 +14,7 @@ export async function POST(req:Request ) {
     //mảng chứa danh sách các giao dịch
     //@ts-ignore
     let transactions = payload?.data;
+    console.log(transactions)
     
     console.log(`Received ${transactions.length} transactions`);
     
