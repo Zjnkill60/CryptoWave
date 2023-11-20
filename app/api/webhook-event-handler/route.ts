@@ -1,3 +1,4 @@
+import { createNewBillBanking } from "@/lib/action/banking.action";
 
 export async function POST(req:Request ) {
     const payload = await req.json()
@@ -16,8 +17,8 @@ export async function POST(req:Request ) {
     let transactions = payload?.data;
     console.log(transactions)
     
-    console.log(`Received ${transactions.length} transactions`);
-    
+    await createNewBillBanking(transactions)
+    //mew
     //thêm code xử lý giao dịch ở đây.
     
     return new Response("OK", {
