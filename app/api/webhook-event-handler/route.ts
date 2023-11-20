@@ -1,9 +1,9 @@
-import { NextApiResponse } from "next";
 import { NextRequest  } from "next/server";
 
-export  function POST(req:Request | NextRequest,res:NextApiResponse ) {
+export  function POST(req:Request | NextRequest,res:Response  ) {
     //@ts-ignore
     let error = req.body.error;
+    console.log(error)
     if (error != 0) {
         //Không làm gì cả.
         return;
@@ -17,5 +17,5 @@ export  function POST(req:Request | NextRequest,res:NextApiResponse ) {
     
     //thêm code xử lý giao dịch ở đây.
     
-    res.status(200).json({message:"OK"});
+    return Response.json({message:"OK"})
 }
