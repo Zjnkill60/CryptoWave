@@ -15,10 +15,10 @@ interface ICreateBanking {
 export const createNewBillBanking = async (params : ICreateBanking[]) => {
     try {
         connectToDatabase()
-        params.map(async (item) => {
-            console.log("item :",item)
-            await Banking.create({id:item.id,description:item.description,amount:item.amount,balance:item.cusum_balance,timeBanking:item.when}) 
-        })
+        for(let i = 0; i < params.length; i++) {
+            console.log(params[i].id,params[i].description)
+            await Banking.create({id:params[i].id,description:params[i].description,amount:params[i].amount,balance:params[i].cusum_balance,timeBanking:params[i].when}) 
+        }
     } catch (error) {
         console.log(error)
     }
