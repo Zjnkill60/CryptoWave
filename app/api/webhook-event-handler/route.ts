@@ -1,8 +1,8 @@
 
 export  function POST(req:Request ) {
-    console.log(req)
-    //@ts-ignore
-    let error = req.body?.error;
+    const content = req.json()
+     //@ts-ignore
+    let error = content?.error;
     console.log(error)
     if (error != 0) {
         //Không làm gì cả.
@@ -13,7 +13,7 @@ export  function POST(req:Request ) {
     
     //mảng chứa danh sách các giao dịch
     //@ts-ignore
-    let transactions = req.body.data;
+    let transactions = content?.data;
     
     console.log(`Received ${transactions.length} transactions`);
     
