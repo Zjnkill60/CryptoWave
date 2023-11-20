@@ -1,5 +1,6 @@
 
 export  function POST(req:Request ) {
+    console.log(req)
     //@ts-ignore
     let error = req.body?.error;
     console.log(error)
