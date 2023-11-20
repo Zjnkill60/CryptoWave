@@ -19,11 +19,11 @@ const CardPayment = (params:ISearchParams) => {
         }
     }
   return (
-    <div className='z-10 fixed bottom-0 w-full min-h-[110px]  bg-gray-200 dark:bg-nft-black-3 border-t dark:border-nft-black-1 border-gray-300 flex items-center gap-40 md:justify-between'>
+    <div className='z-10 fixed bottom-0 md:justify-between left-[256px] md:gap-0 md:left-0 w-full min-h-[110px]  bg-gray-300 dark:bg-nft-black-3 border-t dark:border-nft-black-1 border-gray-300 flex items-center gap-40 '>
             <div className='flex flex-col gap-2 py-5 px-8 z-20 md:px-4'>
                 <h4 className='font-medium sm:text-sm dark:text-gray-400 text-black'>Thanh Toán</h4>
                 
-                <h2 className='text-3xl sm:text-2xl text-text-light-green dark:text-dark-green font-semibold font-sans'>{formatter.format(getPrice(params.packed,params.quantity))}đ</h2>
+                <h2 className='text-3xl md:text-2xl text-text-light-green dark:text-dark-green font-semibold font-sans'>{formatter.format(getPrice(params.packed,params.quantity))}đ</h2>
             </div>
             <div className='flex flex-col gap-4 md:mr-4'>
                 <button onClick={() => handleNavigate()}  className='py-2 px-3 dark:bg-dark-green text-sm bg-text-light-green text-white dark:text-nft-gray-3 font-poppins font-semibold rounded-md hover:opacity-90'>CONTINUE</button>

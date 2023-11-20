@@ -30,8 +30,8 @@ const page = ({searchParams} : {searchParams :ISearchParams}) => {
          nameSelect={searchParams.nameSelect}
          />
 
-        <div className='px-8 md:px-4'>
-            <h2 className=' font-semibold font-poppins md:text-xl text-2xl sm:text-lg'> Dịch Vụ Tăng Tương Tác MXH Twitter </h2>
+        <div className='px-8 md:px-2'>
+            <h2 className=' font-semibold font-poppins md:text-xl text-2xl sm:text-lg sm:ml-1'> Dịch Vụ Tăng Tương Tác MXH Twitter </h2>
             <div className='dark:bg-nft-black-4 bg-nft-gray-0 p-8 rounded-md  mt-8 md:p-6 sm:p-4'>
 
                 <div className='flex items-center gap-7 sm:gap-5'>
@@ -44,10 +44,7 @@ const page = ({searchParams} : {searchParams :ISearchParams}) => {
                     </div>
                 </div>
 
-                <p className='text-sm md:text-xs minsm:hidden dark:text-gray-400 text-gray-600 mt-3'>Nếu bạn chưa chắc chắn hãy nhắn tin qua website ! 
-                        <span className='dark:text-dark-green ml-3 text-text-light-green' >Click here. </span>
-                </p>
-
+                
                 <div className='z-0 flex justify-between items-center mt-10 sd:mt-7 gap-5 md:flex-col'>
                     {OPTION_SELECT_ITEM.map(item => {
                         return <CardItem  key={item.name} name={item.name} description={item.description} price={item.price} fakePrice={item.fakePrice} id={item.id} />
@@ -79,7 +76,6 @@ const page = ({searchParams} : {searchParams :ISearchParams}) => {
                     </div>
                 </div>
 
-                <p className='text-sm md:text-xs minsm:hidden  dark:text-gray-400 text-gray-600 mt-2'>Lựa chọn các cấu hình tài bạn mong muốn, có thể để ngẫu nhiên</p>
 
                 <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-6'/>  
                     
@@ -104,7 +100,6 @@ const page = ({searchParams} : {searchParams :ISearchParams}) => {
                     </div>
                 </div>
 
-                <p className='text-sm md:text-xs minsm:hidden  dark:text-gray-400 text-gray-600 mt-2' >Lựa chọn hình thức thanh toán phù hợp với bạn</p>
 
                 <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-6'/>  
                 
