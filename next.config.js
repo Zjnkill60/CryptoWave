@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
+    // pageExtensions: ['ts'],
+
     experimental: {
         serverActions: true,
         serverComponentsExternalPackages: ["mongoose"],
