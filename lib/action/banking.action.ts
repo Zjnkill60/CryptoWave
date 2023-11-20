@@ -16,6 +16,7 @@ export const createNewBillBanking = async (params : ICreateBanking[]) => {
     try {
         connectToDatabase()
         params.map(async (item) => {
+            console.log("item :",item)
             await Banking.create(item) 
         })
     } catch (error) {
