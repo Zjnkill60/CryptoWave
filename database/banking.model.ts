@@ -19,7 +19,7 @@ export const BankingSchema: Schema = new Schema({
   },
   amount: {
     type: Number,
-
+    required: true,
   },
   balance: {
     type: Number,
@@ -31,4 +31,4 @@ export const BankingSchema: Schema = new Schema({
   }
 });
 let Banking = models?.Banking || model("Banking", BankingSchema);
-export default Banking; //like this try to export every model in you app like this and it should work
+export default Banking; //like this try to export every model in you app like this and it should work123
