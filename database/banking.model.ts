@@ -20,12 +20,10 @@ export const BankingSchema: Schema = new Schema({
   amount: {
     type: Number,
 
-    unique: true,
   },
   balance: {
     type: Number,
     required: true,
-    unique: true,
   },
   timeBanking: {
     type: Date,

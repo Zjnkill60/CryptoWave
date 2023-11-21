@@ -22,3 +22,13 @@ export const createNewUser = (params : ICreateUser) => {
         console.log(error)
     }
 }
+
+export const getUserByClerkId = (id : string) => {
+    try {
+        connectToDatabase()
+        const user = User.findOne({clerkId:id})
+        return user
+    } catch (error) {
+        console.log(error)
+    }
+}
