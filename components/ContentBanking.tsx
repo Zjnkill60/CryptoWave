@@ -5,7 +5,7 @@ import { faCheckCircle, faCircleXmark, faSpinner, faTicket, faX } from '@fortawe
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 
 export interface IPropsContent {
     user:string,
@@ -22,6 +22,12 @@ const ContentBanking = (params:IPropsContent) => {
     const [correctBilling , setCorrectBilling] = useState(0)
     const price = getPrice(params.packed,params.quantity)
 
+    let audioElement:any
+    if(typeof Audio != "undefined") {
+        audioElement = new Audio("/assets/Tieng-ting-www_tiengdong_com.mp3");
+      }
+  
+
     const handleChecking = async () => {
         setLoading(true)
         try {
@@ -31,14 +37,19 @@ const ContentBanking = (params:IPropsContent) => {
                 data = await findOneBilling(params , price);
                 console.log('res:',data)
                 if(data) {
+                    //@ts-ignore
                     clearInterval(fetchInterval)
                     setLoading(false)
                     setCorrectBilling(1)
+                    audioElement.play()
+                    document.body.scroll({top : 0,behavior:"smooth"})
+                    
                 }
                 if(attempTime >= 10) {
                     clearInterval(fetchInterval)
                     setLoading(false)
                     setCorrectBilling(2)
+                    audioElement.play()
                 }
                 attempTime++
               }, 5000); // 5 minutes in milliseconds
@@ -55,9 +66,12 @@ const ContentBanking = (params:IPropsContent) => {
     const handleNavigate = (path : string) => {
         router.push(`${path}`)
     }
-
+    
+   
   return (
     <div className='dark:bg-nft-black-4 bg-nft-gray-0 p-8 rounded-md  mt-8 md:p-6 sm:p-3'>
+
+
         {!loading  ?
         <>
           {correctBilling == 0 ? (
@@ -121,6 +135,7 @@ const ContentBanking = (params:IPropsContent) => {
             </div>):<></>}  
           {correctBilling == 1 ? (
             <div className='min-h-[300px] flex justify-center items-center flex-col gap-5'>
+              
                 <FontAwesomeIcon icon={faCheckCircle} style={{width:60,height:60,color:'#1ed5a7'}}  />
                 <p className='text-sm text-center w-2/5 md:w-3/4 sm:w-full mt-10'>Đơn hàng của bạn đã được tiếp nhận thành công, Vui lòng kiểm tra đơn hàng trong tab lịch sử giao dịch !</p>
                 <div className='flex items-center gap-3'>
