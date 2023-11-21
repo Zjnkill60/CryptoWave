@@ -13,15 +13,24 @@ const page = async ({searchParams} : {searchParams :ISearchParams}) => {
     const userInfo = await getUserByClerkId(userId)
     const contentBilling = `${userInfo?.username}${generateRandomString()}`  
     
-   
   return (
     <div className='min-h-screen'>
         <div className='px-8 md:px-2'>
             <h2 className='font-semibold font-poppins md:text-xl text-2xl sm:text-lg'>Thanh Toán</h2>
 
+            
+            <ContentBanking 
+            user={userInfo?._id} 
+            packed={searchParams.packed} 
+            quantity={searchParams.quantity} 
+            nameSelect={searchParams.nameSelect}
+            avatarSelect={searchParams.avatarSelect}
+            timeZone={searchParams.timeZone}
+            contentBilling={contentBilling}/>
+
             <div className='dark:bg-nft-black-4 bg-nft-gray-0 p-8 rounded-md  mt-8 md:p-6 sm:p-4'>
                 <div className='flex items-center gap-7 sm:gap-5'>
-                    <div className='w-7 h-7 rounded-full dark:bg-white bg-nft-black-2 dark:text-black text-white grid place-items-center font-semibold text-sm '>1</div>
+                    <div className='w-7 h-7 rounded-full dark:bg-white bg-nft-black-2 dark:text-black text-white grid place-items-center font-semibold text-sm '>2</div>
                     <div>
                         <h4 className='text-xl font-medium md:text-lg sm:text-base'>Cùng nhìn lại đơn hàng của bạn</h4>
                         <p className='text-sm md:text-xs sm:hidden  dark:text-gray-400 text-gray-600 mt-1'>
@@ -56,7 +65,7 @@ const page = async ({searchParams} : {searchParams :ISearchParams}) => {
                     <div className='flex items-center gap-7 '>
                         <FontAwesomeIcon icon={faCircleCheck} style={{color:'#1ed5a7',width:20,height:20}}  />
                         <p >Số tiền bạn cần thanh toán là : 
-                            <span className=' text-text-light-green dark:text-dark-green font-semibold font-sans ml-3 text-lg'>
+                            <span className=' text-text-light-green dark:text-dark-green font-semibold font-sans ml-3 text-base'>
                              {formatter.format(getPrice(searchParams.packed,searchParams.quantity))}đ
                             </span>  
                         </p>
@@ -64,7 +73,6 @@ const page = async ({searchParams} : {searchParams :ISearchParams}) => {
                 </div>
             </div>
 
-            <ContentBanking packed={searchParams.packed} quantity={searchParams.quantity} contentBilling={contentBilling}/>
         </div>
     </div>
   )

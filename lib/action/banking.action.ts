@@ -2,6 +2,8 @@
 
 import Banking from "@/database/banking.model";
 import { connectToDatabase } from "../mongoose";
+import Job from "@/database/job.model";
+import { IPropsContent } from "@/components/ContentBanking";
 
 interface ICreateBanking {
     id: string;
@@ -24,12 +26,17 @@ export const createNewBillBanking = async (params : ICreateBanking[]) => {
     }
 }
 
-export const findOneBilling = async (billingContent : string) => {
+export const findOneBilling = async (dataTask : IPropsContent,price : number) => {
     try {
+        console.log("billingContent : ",dataTask.contentBilling)
         connectToDatabase()
     
-        let data = await  Banking.findOne({description : `/${billingContent}/i` })
+        let data = await  Banking.findOne({"description": { "$regex": dataTask?.contentBilling, "$options": "i" }, amount : price})
         console.log('data : ',data)
+        if(data) {
+            console.log(dataTask)
+            await Job.create({...dataTask,taskName : dataTask?.packed ,user:dataTask?.user, banking:data?._id })
+        }
         return data
     }
         

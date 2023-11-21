@@ -1,36 +1,50 @@
 "use client"
 import { findOneBilling } from '@/lib/action/banking.action'
 import { formatter, getPrice } from '@/lib/utils'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faCircleXmark, faSpinner, faTicket, faX } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
-interface IProps {
+export interface IPropsContent {
+    user:string,
+    nameSelect:string,
+    avatarSelect:string,
+    timeZone:string,
     packed:string ,
     quantity:number,
     contentBilling:string
 }
-const ContentBanking = (params:IProps) => {
+const ContentBanking = (params:IPropsContent) => {
+    const router = useRouter()
     const [loading , setLoading] = useState(false)
     const [correctBilling , setCorrectBilling] = useState(0)
+    const price = getPrice(params.packed,params.quantity)
 
     const handleChecking = async () => {
         setLoading(true)
         try {
             let data
+            let attempTime = 0
             const fetchInterval = setInterval(async () => {
-                data = await findOneBilling(params?.contentBilling);
+                data = await findOneBilling(params , price);
                 console.log('res:',data)
+                if(data) {
+                    clearInterval(fetchInterval)
+                    setLoading(false)
+                    setCorrectBilling(1)
+                }
+                if(attempTime >= 10) {
+                    clearInterval(fetchInterval)
+                    setLoading(false)
+                    setCorrectBilling(2)
+                }
+                attempTime++
               }, 5000); // 5 minutes in milliseconds
               
             (async () => {
                 fetchInterval;
-                console.log(data)
-                if(data) {
-                    clearInterval(fetchInterval)
-                    setLoading(false)
-                }
             })();
            
         } catch (error) {
@@ -38,14 +52,18 @@ const ContentBanking = (params:IProps) => {
         
     }}
 
+    const handleNavigate = (path : string) => {
+        router.push(`${path}`)
+    }
+
   return (
-    <div className='dark:bg-nft-black-4 bg-nft-gray-0 p-8 rounded-md  mt-8 md:p-6 sm:p-4'>
+    <div className='dark:bg-nft-black-4 bg-nft-gray-0 p-8 rounded-md  mt-8 md:p-6 sm:p-3'>
         {!loading  ?
         <>
           {correctBilling == 0 ? (
              <div>
                  <div className='flex items-center gap-7 sm:gap-5'>
-                        <div className='w-7 h-7 rounded-full dark:bg-white bg-nft-black-2 dark:text-black text-white grid place-items-center font-semibold text-sm '>2</div>
+                        <div className='w-7 h-7 rounded-full dark:bg-white bg-nft-black-2 dark:text-black text-white grid place-items-center font-semibold text-sm '>1</div>
                         <div>
                             <h4 className='text-xl font-medium md:text-lg sm:text-base'>Thực hiện chuyển khoản</h4>
                             <p className='text-sm md:text-xs sm:hidden  dark:text-gray-400 text-gray-600 mt-1'>
@@ -56,8 +74,8 @@ const ContentBanking = (params:IProps) => {
                     <p className='text-sm md:text-xs minsm:hidden  dark:text-gray-400 text-gray-600 mt-2 line-clamp-2'> Đơn hàng sẽ được xác nhận tự động sau 3-5 phút, Nếu ngoài 2 tiếng hãy nhắn qua telegram để được hỗ trợ</p>
                     <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-6'/>  
 
-                    <div className='mb-32 flex justify-evenly mt-14 xl:flex-col xl:gap-10'>
-                        <div className='p-6 dark:bg-nft-black-1 bg-gray-200 xl:w-full w-[388px]  flex flex-col rounded-lg'>
+                    <div className='mb-10 flex justify-evenly mt-14 sm:mt-4 xl:flex-col xl:gap-10'>
+                        <div className='p-6 sm:p-2 dark:bg-nft-black-1 bg-gray-200 xl:w-full w-[388px]  flex flex-col rounded-lg'>
                             <h2 className='text-xl md:text-lg font-semibold text-text-light-green dark:text-dark-green '>THÔNG TIN NẠP TIỀN</h2>
                             <div className='flex sm:flex-col sm:items-start items-center gap-3 mt-7'>
                                 <p className='dark:text-gray-200 text-gray-600'>Ngân hàng:</p>
@@ -76,7 +94,7 @@ const ContentBanking = (params:IProps) => {
                             <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-4'/>  
                             <div className='flex flex-col gap-3'>
                                 <p className='dark:text-gray-200 text-gray-600'>Số tiền cần thanh toán:</p>
-                                <p className='ml-3 font-semibold'>{formatter.format(getPrice(params.packed,params.quantity))} VNĐ</p>
+                                <p className='ml-3 font-semibold'>{formatter.format(price)} VNĐ</p>
                             </div>
                             <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-4'/>  
                             <div className='flex flex-col gap-3'>
@@ -91,7 +109,7 @@ const ContentBanking = (params:IProps) => {
                             <h2 className='text-lg md:text-lg font-semibold text-text-light-green dark:text-dark-green'>Quét mã QR để thanh toán</h2>
                             <p className='w-3/4 sm:w-full sm:text-sm text-center'>Sử dụng App Internet Banking hoặc ứng dụng camera hỗ trợ QR code để quét mã</p>
                             <Image
-                            src={`https://img.vietqr.io/image/vietinbank-108880363341-print.jpg?amount=${getPrice(params.packed,params.quantity)}&addInfo=${params.contentBilling}&accountName="Nguyen Duc Anh"`}
+                            src={`https://img.vietqr.io/image/vietinbank-108880363341-print.jpg?amount=${price}&addInfo=${params.contentBilling}&accountName="Nguyen Duc Anh"`}
                             alt='qr'
                             width={350}
                             height={350}
@@ -102,14 +120,24 @@ const ContentBanking = (params:IProps) => {
                     </div>
             </div>):<></>}  
           {correctBilling == 1 ? (
-            <div className='min-h-[300px] grid place-items-center'>
-                CK thanh cong
+            <div className='min-h-[300px] flex justify-center items-center flex-col gap-5'>
+                <FontAwesomeIcon icon={faCheckCircle} style={{width:60,height:60,color:'#1ed5a7'}}  />
+                <p className='text-sm text-center w-2/5 md:w-3/4 sm:w-full mt-10'>Đơn hàng của bạn đã được tiếp nhận thành công, Vui lòng kiểm tra đơn hàng trong tab lịch sử giao dịch !</p>
+                <div className='flex items-center gap-3'>
+                    <button onClick={() => handleNavigate("/client/interaction")} className='p-2 min-w-[150px] dark:bg-dark-green hover:opacity-90 bg-green-lightmode mt-3 text-sm dark:text-gray-700 font-semibold rounded-md'>Giao dịch mới</button>
+                    <button onClick={() => handleNavigate("/client/history")} className='p-2 min-w-[130px] dark:bg-dark-green hover:opacity-90 bg-green-lightmode mt-3 text-sm dark:text-gray-700 font-semibold rounded-md'>Lịch sử GD</button>
+                </div>
              </div>
           ):<></>}   
           {correctBilling == 2 ? (
-            <div className='min-h-[300px] grid place-items-center'>
-                CK that bai
-             </div>
+            <div className='min-h-[300px] flex justify-center items-center flex-col gap-5'>
+                <FontAwesomeIcon icon={faCircleXmark} style={{width:60,height:60,color:'red'}} className='dark:invert-0'  />
+                <p className='text-sm text-center w-2/5 md:w-3/4 sm:w-full mt-10'>Hệ thống không tìm thấy giao dịch banking của bạn, vui lòng thử lại nếu đã chuyển khoản thành công !</p>
+                <div className='flex items-center gap-3'>
+                    <button onClick={() => handleNavigate("/client/interaction")} className='p-2 min-w-[150px] dark:bg-dark-green hover:opacity-90 bg-green-lightmode mt-3 text-sm dark:text-gray-700 font-semibold rounded-md'>Giao dịch mới</button>
+                    <button onClick={handleChecking} className='p-2 min-w-[130px] dark:bg-dark-green hover:opacity-90 bg-green-lightmode mt-3 text-sm dark:text-gray-700 font-semibold rounded-md'>Thử lại</button>
+                </div>
+          </div>
           ):<></>} 
         
         </> :
