@@ -7,7 +7,6 @@ import React from 'react'
 
 const LeftSideBar = () => {
   const pathName = usePathname()
-  console.log(pathName)
   return (
     <div className='min-h-screen z-20 fixed left-0 bg-nft-gray-0 dark:bg-nft-black-2  min-w-256 md:hidden border-r dark:border-nft-black-4 border-gray-300 px-4 py-5'>
        <Link href="/client" className='flex items-center  dark:text-dark-green font-sans'>

@@ -20,8 +20,8 @@ const TableHistory = ({result} : {result :any}) => {
   let totalPrice = 0
   result.map((item:any) => totalPrice += item.banking.amount)
   return (
-    <div className="bg-gray-100 dark:bg-nft-black-4 rounded-md p-4 sm:p-2 mt-10 no-scrollbar max-w-[100vw]">
-       <div className="overflow-x-auto max-w-[100vw]   no-scrollbar">
+    <div className="bg-gray-100 dark:bg-nft-black-4 rounded-md p-4 sm:p-2 mt-10 no-scrollbar max-w-[95vw]">
+       <div className="overflow-x-auto max-w-[95vw]   no-scrollbar">
        <Table className=" whitespace-nowrap">
             <TableCaption className="sm:text-left">Lịch sử giao dịch của bạn</TableCaption>
             <TableHeader>

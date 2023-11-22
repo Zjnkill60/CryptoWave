@@ -1,15 +1,5 @@
 import TableHistory from "@/components/shared/TableHistory"
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-import { IUser } from "@/database/user.model"
+
 import { findAllJobForUserHistory } from "@/lib/action/job.action"
 import { getUserByClerkId } from "@/lib/action/user.action"
 import { formatter } from "@/lib/utils"
@@ -23,7 +13,7 @@ export default async function History() {
 
 
   return (
-    <div className="px-8 sm:px-4 max-w-[100vw]   min-h-screen">
+    <div className="px-8 sm:px-2 max-w-[100vw]   min-h-screen">
       <h2 className=' font-semibold font-poppins md:text-xl text-2xl sm:text-lg sm:ml-1'> Lịch Sử Giao Dịch</h2>
       <ul className="ml-3 mt-8 text-sm space-y-1 ">
         <li><span className="dark:text-orange-400 text-orange-500 font-medium">- Pending</span> : Trạng thái chờ hệ thống xác nhận</li>
