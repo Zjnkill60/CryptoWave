@@ -26,3 +26,44 @@ export function generateRandomString() {
   }
   return result;
 }
+
+export const convertTaskname = (task : string) => {
+  if(task == "view") return "View"
+  if(task == "folow") return "Follow"
+  if(task == "combo") return "Combo BKT"
+}
+
+export const convertNameClone = (task : string) => {
+  if(task == "vietnam") return "Việt Nam"
+  if(task == "foreign") return "Nước Ngoài"
+  if(task == "random") return "Random"
+}
+
+export const convertAvatarClone = (task : string) => {
+  if(task == "nft") return "Ảnh NFT"
+  if(task == "human") return "Ảnh Người"
+  if(task == "cat") return "Ảnh Mèo"
+  if(task == "random") return "Random"
+}
+
+export const convertTimeZone = (task : string) => {
+  if(task !== "random") return "Ngày"
+}
+
+export const convertQuantity = (quantity : number ,packedName : string) => {
+  if(packedName == "view") return `${quantity}M View`
+  if(packedName == "folow") return `${quantity * 100} Follow`
+  if(packedName == "combo") return `1`
+}
+
+export const formatDate = (date:string) => {
+  const now = new Date(date);
+  const timezone = 'Asia/Jakarta';
+  const formattedDate = new Intl.DateTimeFormat('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    timeZone: timezone
+  }).formatToParts(now).map(part => part.value).join('');
+  return formattedDate
+}

@@ -7,6 +7,7 @@ export interface IJob extends Document {
   banking : Schema.Types.ObjectId;
   taskName: string;
   avatarSelect: string;
+  status:string;
   nameSelect: string;
   quantity: number;
   timeZone : string;  
@@ -26,6 +27,10 @@ export const JobSchema: Schema = new Schema({
     },
 
     taskName: {
+        type: String,
+        required: true,
+    },
+    status: {
         type: String,
         required: true,
     },

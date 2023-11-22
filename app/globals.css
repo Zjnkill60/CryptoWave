@@ -15,6 +15,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.editor_listing_table {
+  @apply w-full p-2 m-1;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -24,6 +27,16 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .nft-gradient {
@@ -60,6 +73,10 @@ body {
 .fa-moon {
   color: pink;
   font-size: 9px;
+}
+
+.arrow-up {
+  color: #84fab0;
 }
 
 .fa-sun {

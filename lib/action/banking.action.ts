@@ -35,7 +35,7 @@ export const findOneBilling = async (dataTask : IPropsContent,price : number) =>
         console.log('data : ',data)
         if(data) {
             console.log(dataTask)
-            await Job.create({...dataTask,taskName : dataTask?.packed ,user:dataTask?.user, banking:data?._id })
+            await Job.create({...dataTask,taskName : dataTask?.packed ,user:dataTask?.user, banking:data?._id,status:"Pending" })
         }
         return data
     }
