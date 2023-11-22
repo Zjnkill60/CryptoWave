@@ -60,9 +60,26 @@ export const formatDate = (date:string) => {
   const now = new Date(date);
   const timezone = 'Asia/Jakarta';
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
+    hour :'2-digit',
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
+    timeZone: timezone
+  }).formatToParts(now).map(part => part.value).join('');
+  return formattedDate
+}
+
+export function formatDateDetail(date:string) {
+  const now = new Date(date);
+  const timezone = 'Asia/Jakarta';
+  const formattedDate = new Intl.DateTimeFormat('en-GB', {
+    
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    second:'numeric',
+    minute:'2-digit',
+    hour :'2-digit',
     timeZone: timezone
   }).formatToParts(now).map(part => part.value).join('');
   return formattedDate

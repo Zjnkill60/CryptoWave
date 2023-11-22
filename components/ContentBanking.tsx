@@ -69,7 +69,7 @@ const ContentBanking = (params:IPropsContent) => {
     
    
   return (
-    <div className='dark:bg-nft-black-4 bg-nft-gray-0 p-8 rounded-md  mt-8 md:p-6 sm:p-3'>
+    <div className='dark:bg-nft-black-4 bg-nft-gray-0 px-8 rounded-md  mt-4 md:px-3 sm:p-3'>
 
 
         {!loading  ?
@@ -80,7 +80,7 @@ const ContentBanking = (params:IPropsContent) => {
                         <div className='w-7 h-7 rounded-full dark:bg-white bg-nft-black-2 dark:text-black text-white grid place-items-center font-semibold text-sm '>1</div>
                         <div>
                             <h4 className='text-xl font-medium md:text-lg sm:text-base'>Thực hiện chuyển khoản</h4>
-                            <p className='text-sm md:text-xs sm:hidden  dark:text-gray-400 text-gray-600 mt-1'>
+                            <p className='text-sm md:text-xs sm:hidden  dark:text-gray-400 text-gray-600 mt-1 text-center'>
                                 Đơn hàng sẽ được xác nhận tự động sau 3-5 phút, Nếu ngoài 2 tiếng hãy nhắn qua telegram để được hỗ trợ
                             </p>
                         </div>
@@ -88,35 +88,35 @@ const ContentBanking = (params:IPropsContent) => {
                     <p className='text-sm md:text-xs minsm:hidden  dark:text-gray-400 text-gray-600 mt-2 line-clamp-2'> Đơn hàng sẽ được xác nhận tự động sau 3-5 phút, Nếu ngoài 2 tiếng hãy nhắn qua telegram để được hỗ trợ</p>
                     <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-6'/>  
 
-                    <div className='mb-10 flex justify-evenly mt-14 sm:mt-4 xl:flex-col xl:gap-10'>
-                        <div className='p-6 sm:p-2 dark:bg-nft-black-1 bg-gray-200 xl:w-full w-[388px]  flex flex-col rounded-lg'>
-                            <h2 className='text-xl md:text-lg font-semibold text-text-light-green dark:text-dark-green '>THÔNG TIN NẠP TIỀN</h2>
+                    <div className='mb-10 flex justify-evenly mt-14 sm:mt-4 xl:flex-col xl:gap-10 sm:gap-5'>
+                        <div className='p-6  sm:p-3 dark:bg-nft-black-1 bg-gray-200 xl:w-full w-[388px]  flex flex-col rounded-lg'>
+                            <h2 className='text-xl sm:text-lg md:text-lg font-semibold text-text-light-green dark:text-dark-green '>THÔNG TIN NẠP TIỀN</h2>
                             <div className='flex sm:flex-col sm:items-start items-center gap-3 mt-7'>
                                 <p className='dark:text-gray-200 text-gray-600'>Ngân hàng:</p>
-                                <p className='font-semibold sm:ml-3'>VietinBank</p>
+                                <p className='font-semibold sm:ml-3 sm:text-sm '>VietinBank</p>
                             </div>
                             <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-4'/>  
-                            <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-3 sm:gap-2'>
                                 <p className='dark:text-gray-200 text-gray-600'>Số tài khoản:</p>
-                                <p className='ml-3 font-semibold '>108880363341</p>
+                                <p className='ml-3 font-semibold sm:text-sm '>108880363341</p>
                             </div>
                             <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-4'/>  
-                            <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-3 sm:gap-2'>
                                 <p className='dark:text-gray-200 text-gray-600'>Chủ tài khoản:</p>
-                                <p className='ml-3 font-semibold'>NGUYEN DUC ANH</p>
+                                <p className='ml-3 font-semibold sm:text-sm'>NGUYEN DUC ANH</p>
                             </div>
                             <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-4'/>  
-                            <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-3 sm:gap-2'>
                                 <p className='dark:text-gray-200 text-gray-600'>Số tiền cần thanh toán:</p>
-                                <p className='ml-3 font-semibold'>{formatter.format(price)} VNĐ</p>
+                                <p className='ml-3 font-semibold sm:text-sm'>{formatter.format(price)} VNĐ</p>
                             </div>
                             <div className='w-full h-[1px] dark:bg-nft-gray-3 bg-nft-gray-2 my-4'/>  
-                            <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-3 sm:gap-2'>
                                 <p className='dark:text-gray-200 text-gray-600'>Nội dung chuyển khoản:</p>
-                                <p className='ml-3 font-semibold'>{params.contentBilling}</p>
+                                <p className='ml-3 font-semibold sm:text-sm'>{params.contentBilling}</p>
                             </div>
 
-                            <p className='mt-14 text-sm dark:text-gray-400 text-gray-600'>Lưu ý : Nội dung chuyển khoản phải chính xác tuyệt đối, vui lòng quét mã QR hoặc copy để không sai sót, nếu bạn đã lỡ sai ndck hãy liên hệ với AD qua Telegram để được hỗ trợ</p>
+                            <p className='mt-14 text-sm dark:text-gray-400 text-gray-600 sm:mt-10'>Lưu ý : Nội dung chuyển khoản phải chính xác tuyệt đối, vui lòng quét mã QR hoặc copy để không sai sót, nếu bạn đã lỡ sai ndck hãy liên hệ với AD qua Telegram để được hỗ trợ</p>
                         </div>
 
                         <div className='flex  flex-col items-center gap-3'>
