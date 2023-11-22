@@ -89,7 +89,7 @@ const Dashboard = async () => {
   let result = await findAllHistory()
   console.log(result)
   return (
-    <section className=" px-4 gap-3">
+    <section className=" px-4 gap-3 max-w-[100vw] ">
        <h2 className='font-semibold font-poppins md:text-xl text-2xl sm:text-lg'>Thống kê hệ thống </h2>
 
      <div className='flex gap-5 mt-10 md:flex-col sm:mt-5'>
