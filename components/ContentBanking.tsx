@@ -75,8 +75,8 @@ const ContentBanking = (params:IPropsContent) => {
         {!loading  ?
         <>
           {correctBilling == 0 ? (
-             <div>
-                 <div className='flex items-center gap-7 sm:gap-5'>
+             <div className='py-6 sm:py-2'>
+                   <div className='flex items-center gap-7 sm:gap-5 '>
                         <div className='w-7 h-7 rounded-full dark:bg-white bg-nft-black-2 dark:text-black text-white grid place-items-center font-semibold text-sm '>1</div>
                         <div>
                             <h4 className='text-xl font-medium md:text-lg sm:text-base'>Thực hiện chuyển khoản</h4>
