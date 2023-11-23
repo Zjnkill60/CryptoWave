@@ -1,4 +1,3 @@
-import passport from '../node_modules/passport'
 import '../../../../lib/passportConfig'
 import TwitterLogin from 'twitter-login'
 
