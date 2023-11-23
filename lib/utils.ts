@@ -60,7 +60,6 @@ export const formatDate = (date:string) => {
   const now = new Date(date);
   const timezone = 'Asia/Jakarta';
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
-    hour :'2-digit',
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',

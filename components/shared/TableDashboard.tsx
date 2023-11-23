@@ -22,7 +22,7 @@ const TableDashboard = ({result} : {result :any}) => {
             <TableCaption className="sm:text-left mt-5">Top 5 giao dịch gần đây</TableCaption>
             <TableHeader>
                 <TableRow >
-                <TableHead className="w-[150px] text-left">STT</TableHead>    
+                <TableHead className="w-[150px] text-left ">STT</TableHead>    
                 <TableHead >Username</TableHead>
                 <TableHead>Tương Tác</TableHead>
                 <TableHead>Số Lượng</TableHead>
@@ -34,7 +34,7 @@ const TableDashboard = ({result} : {result :any}) => {
             <TableBody>
                 {result.map((item : any,index:number) => (
                 <TableRow key={item._id}>
-                    <TableCell className="font-medium">{index +1}</TableCell>
+                    <TableCell className="font-medium ">{index +1}</TableCell>
                     <TableCell className="font-medium">{item.user?.username}</TableCell>
                     <TableCell>{convertTaskname(item?.taskName)}</TableCell>
                     <TableCell>{convertQuantity(item?.quantity,item.taskName)}</TableCell>

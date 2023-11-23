@@ -2,7 +2,9 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <a href='/api/auth/login'>Login tw</a>
+    </div>
   )
 }
 
